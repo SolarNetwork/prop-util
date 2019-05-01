@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'checkstyle'
     id 'eclipse'
+    id 'com.limark.gitflowsemver' version '0.3.0'
 }
 
 repositories {
