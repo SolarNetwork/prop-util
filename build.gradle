@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'eclipse'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.hamcrest:hamcrest-library:1.3'
+}
+
+checkstyle {
+   toolVersion ="8.18" 
+}
+
+eclipse {
+	project {
+		natures 'net.sf.eclipsecs.core.CheckstyleNature'
+		buildCommand 'net.sf.eclipsecs.core.CheckstyleBuilder'
+	}
+}
+
+jar {
+    baseName = 'sn-prop-util'
+    version =  version
+    manifest {
+        attributes 'Main-Class': 'net.solarnetwork.proputil.App'
+    }
+}
