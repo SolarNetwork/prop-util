@@ -36,6 +36,9 @@ import net.solarnetwork.proputil.PropertiesResource;
  */
 public class Modify extends BaseActionHandler {
 
+  /** The option for a property file to modify. */
+  public static final String OPTION_FILE = "file";
+
   /** The option to add property values, as <i>key:value</i> pairs. */
   public static final String OPTION_ADD = "add";
 
@@ -49,13 +52,15 @@ public class Modify extends BaseActionHandler {
   public String helpDoc(Action action, Map<String, List<String>> switches, List<String> arguments) {
     StringBuilder buf = new StringBuilder();
     buf.append("Usage: modify [arguments...]\n");
+    buf.append("\nBasic arguments\n");
+    buf.append("  --file path        The path to a file to modify. Can be set multiple times.\n");
     buf.append("\nModify arguments\n");
     buf.append(
         "  --add key:val      Set property 'key' to value 'val', only if 'key' does not already\n");
-    buf.append("  --delete key       Delete property 'key'\n");
+    buf.append("                     exist. Can be set multiple times.\n");
+    buf.append("  --delete key       Delete property 'key'.\n");
     buf.append(
         "  --set key:val      Set property 'key' to value 'val'. Can be set multiple times.\n");
-    buf.append("                     exist. Can be set multiple times.\n");
     buf.append("\nModify order\n");
     buf.append("  The order of operations is delete, set, then add.\n");
     return buf.toString();
