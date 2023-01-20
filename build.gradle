@@ -18,6 +18,9 @@ checkstyle {
    toolVersion ="8.18" 
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 eclipse {
 	project {
 		natures 'net.sf.eclipsecs.core.CheckstyleNature'
